@@ -50,6 +50,8 @@ namespace MathQuiz
             timeRemaining--;
             int timeTemp = timeRemaining < 0 ? -timeRemaining : timeRemaining;
             timeLabel.Text = $"Time: " + (timeRemaining < 0 ? "-" : "0") + (timeTemp / 60) + (timeTemp % 60 < 10 ? ":0" : ":") + (timeTemp % 60);
+
+            // Change background colour based on the remaining time
             if (timeRemaining <= 0)
             {
                 timeLabel.BackColor = Color.Red;
@@ -88,6 +90,7 @@ namespace MathQuiz
                 {
                     switch(i)
                     {
+                        // Check the type of mistake
                         case 0:
                             if (quizList[0].Num1 + quizList[0].Num2 != quizList[0].NumericResult.Value)
                             {
@@ -164,15 +167,17 @@ namespace MathQuiz
 
                 if (wrong == 0)
                 {
+                    // Correct answer
                     stats.NumCorrect++;
                     if (timeRemaining > 0)
                         StartNewQuiz();
                     else
                     {
+                        // Show stastistics
                         mainTimer.Enabled = false;
                         for (i = 0; i < 4; i++) quizList[i].Enabled = false;
 
-                        MessageBox.Show($"Quiz Over\nCorrect Answers: {stats.NumCorrect}\nWrong Answers: {stats.NumErrors}\nTotal Time: {120 - timeRemaining}s\nExceeded Time: " + (timeRemaining < 0 ? "Yes" : "No") + "\nUsed Calculator: " + (stats.UsedCalculator ? "Yes" : "No") + $"Score: {stats.Score - (timeRemaining < 0 ? timeRemaining - 120 : 0)}");
+                        MessageBox.Show($"Quiz Over\nCorrect Answers: {stats.NumCorrect}\nWrong Answers: {stats.NumErrors}\nTotal Time: {120 - timeRemaining}s\nExceeded Time: " + (timeRemaining < 0 ? "Yes" : "No") + "\nUsed Calculator: " + (stats.UsedCalculator ? "Yes" : "No") + $"\nScore: {stats.Score + timeRemaining}");
 
                         EndQuiz();
                     }
@@ -231,8 +236,7 @@ namespace MathQuiz
             quizList[3].Num1 = random.Next(1, 50) * quizList[3].Num2;
             quizList[3].NumericResult.Value = 0;
         }
-
-
+        
         private void exitMenu_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -275,6 +279,11 @@ namespace MathQuiz
         private void stopMenu_Click(object sender, EventArgs e)
         {
             EndQuiz();
+        }
+
+        private void helpMenu_Click(object sender, EventArgs e)
+        {
+            helpForm.Show();
         }
     }
 }

@@ -37,7 +37,6 @@
             this.gameMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.startMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.stopMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.leaderBoardMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.booToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.quizHelpMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +102,6 @@
             this.gameMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startMenu,
             this.stopMenu,
-            this.leaderBoardMenu,
             this.booToolStripMenuItem,
             this.exitMenu});
             this.gameMenu.Name = "gameMenu";
@@ -114,7 +112,7 @@
             // 
             this.startMenu.Name = "startMenu";
             this.startMenu.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.startMenu.Size = new System.Drawing.Size(164, 22);
+            this.startMenu.Size = new System.Drawing.Size(180, 22);
             this.startMenu.Text = "Start the Quiz";
             this.startMenu.Click += new System.EventHandler(this.startMenu_Click);
             // 
@@ -126,22 +124,16 @@
             this.stopMenu.Visible = false;
             this.stopMenu.Click += new System.EventHandler(this.stopMenu_Click);
             // 
-            // leaderBoardMenu
-            // 
-            this.leaderBoardMenu.Name = "leaderBoardMenu";
-            this.leaderBoardMenu.Size = new System.Drawing.Size(164, 22);
-            this.leaderBoardMenu.Text = "Leaderboard";
-            // 
             // booToolStripMenuItem
             // 
             this.booToolStripMenuItem.Name = "booToolStripMenuItem";
-            this.booToolStripMenuItem.Size = new System.Drawing.Size(161, 6);
+            this.booToolStripMenuItem.Size = new System.Drawing.Size(177, 6);
             // 
             // exitMenu
             // 
             this.exitMenu.Name = "exitMenu";
             this.exitMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenu.Size = new System.Drawing.Size(164, 22);
+            this.exitMenu.Size = new System.Drawing.Size(180, 22);
             this.exitMenu.Text = "Exit";
             this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click);
             // 
@@ -159,13 +151,14 @@
             // helpMenu
             // 
             this.helpMenu.Name = "helpMenu";
-            this.helpMenu.Size = new System.Drawing.Size(128, 22);
+            this.helpMenu.Size = new System.Drawing.Size(180, 22);
             this.helpMenu.Text = "Help";
+            this.helpMenu.Click += new System.EventHandler(this.helpMenu_Click);
             // 
             // booToolStripMenuItem1
             // 
             this.booToolStripMenuItem1.Name = "booToolStripMenuItem1";
-            this.booToolStripMenuItem1.Size = new System.Drawing.Size(125, 6);
+            this.booToolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // calculatorMenu
             // 
@@ -207,7 +200,6 @@
         private System.Windows.Forms.ToolStripMenuItem gameMenu;
         private System.Windows.Forms.ToolStripMenuItem startMenu;
         private System.Windows.Forms.ToolStripMenuItem stopMenu;
-        private System.Windows.Forms.ToolStripMenuItem leaderBoardMenu;
         private System.Windows.Forms.ToolStripSeparator booToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
         private System.Windows.Forms.ToolStripMenuItem quizHelpMenu;

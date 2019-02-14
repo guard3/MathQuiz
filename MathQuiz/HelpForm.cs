@@ -15,7 +15,15 @@ namespace MathQuiz
         public HelpForm()
         {
             InitializeComponent();
-            richTextBox1.LoadFile("HelpSection.txt", RichTextBoxStreamType.PlainText);
+        }
+
+        private void HelpForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                Hide();
+            }
         }
     }
 }

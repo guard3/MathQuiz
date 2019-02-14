@@ -92,7 +92,7 @@ namespace MathQuiz
 
         }
 
-
+        // Add each operation symbol to the calcBox
         void OperatorButton_Click(object sender, EventArgs args)
         {
             if (operation != 0)

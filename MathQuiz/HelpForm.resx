@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Math Quiz
+
+Click on the 'Start the Quiz' Button to start the quiz.
+In each round, you must answer 4 mathematical questions based on the 4 simple operations:
+Addition, Subtraction, Multiplication and Division. For each successful round, you get 100 points.
+If you use the supplied calculator for help, or make make mistakes, you will lose a few points, so be careful!</value>
+  </data>
 </root>
