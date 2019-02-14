@@ -34,7 +34,8 @@ namespace MathQuiz
         }
 
         NumberButton[] numButtonList = new NumberButton[10];
-        int operation = 0;
+        enum operationEnum : int { NO_OPERATION, ADDITION, SUBTRACTION, MULTIPLICATION, DIVISION };
+        int operation = (int)operationEnum.NO_OPERATION;
         int num1 = 0, num2 = 0;
 
         public CalculatorForm()
@@ -85,7 +86,7 @@ namespace MathQuiz
             delButton.Click += (object o, EventArgs e) =>
             {
                 if (calcBox.Text.Length == 0) return;
-                if (!char.IsDigit(calcBox.Text[calcBox.Text.Length - 1])) operation = 0;
+                if (!char.IsDigit(calcBox.Text[calcBox.Text.Length - 1])) operation = (int)operationEnum.NO_OPERATION;
                 calcBox.Text = calcBox.Text.Substring(0, calcBox.Text.Length - 1);
             };
 
@@ -100,22 +101,22 @@ namespace MathQuiz
             }
             if ((Button)sender == addButton)
             {
-                operation = 1;
+                operation = (int)operationEnum.ADDITION;
                 calcBox.Text += "+";
             }
             else if ((Button)sender == subButton)
             {
-                operation = 2;
+                operation = (int)operationEnum.SUBTRACTION;
                 calcBox.Text += "-";
             }
             else if ((Button)sender == multButton)
             {
-                operation = 3;
+                operation = (int)operationEnum.MULTIPLICATION;
                 calcBox.Text += "x";
             }
             else
             {
-                operation = 4;
+                operation = (int)operationEnum.DIVISION;
                 calcBox.Text += ":";
             }
         }
@@ -136,20 +137,20 @@ namespace MathQuiz
             try { num1 = int.Parse(numbers[0]); }
             catch(Exception) { num1 = 0; }
             try { num2 = int.Parse(numbers[1]); }
-            catch(Exception) { num2 = operation == 3 || operation == 4 ? 1 : 0; }
+            catch(Exception) { num2 = operation == (int)operationEnum.MULTIPLICATION || operation == (int)operationEnum.DIVISION ? 1 : 0; }
 
             switch (operation)
             {
-                case 1:
+                case (int)operationEnum.ADDITION:
                     num1 = num1 + num2;
                     break;
-                case 2:
+                case (int)operationEnum.SUBTRACTION:
                     num1 = num1 - num2;
                     break;
-                case 3:
+                case (int)operationEnum.MULTIPLICATION:
                     num1 = num1 * num2;
                     break;
-                case 4:
+                case (int)operationEnum.DIVISION:
                     if (num2 == 0)
                     {
                         num1 = 0;
